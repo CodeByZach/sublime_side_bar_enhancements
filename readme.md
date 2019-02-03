@@ -1,13 +1,5 @@
 # Sidebar Enhancements
 
-### In other languages
-
-Japanese - <http://taamemo.blogspot.jp/2012/10/sublime-text-2-sidebarenhancements.html?m=1>
-
-Russian - <https://www.youtube.com/watch?v=8I0dJTd58kI&feature=youtu.be&a>
-
-Chinese - <https://github.com/52fisher/SideBarEnhancements>
-
 ## Description
 
 Provides enhancements to the operations on Sidebar of Files and Folders for Sublime Text. <http://www.sublimetext.com/>
