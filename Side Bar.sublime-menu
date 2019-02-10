@@ -200,12 +200,12 @@
 			{
 				"caption": "Edit Applications…",
 				"id": "side-bar-files-open-with-edit-applications",
-				"command": "side_bar_enhancements_openwith_edit_settings",
+				"command": "z_edit_settings",
 				"args":
 				{
 					"base_file": "${packages}/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 					"user_file": "${packages}/User/SideBarEnhancements/Open With/Side Bar (${platform}).sublime-menu",
-					"default": "[\n$0\n]\n"
+					"default": "[\n\t$0\n]\n"
 				}
 			},
 			{
