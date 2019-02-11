@@ -200,27 +200,14 @@ Aleksandar Urosevic, bofm, Dalibor Simacek, Devin Rhode, Eric Eldredge, Hewei Li
 
 ## License
 
-"None are so hopelessly enslaved as those who falsely believe they are free." Johann Wolfgang von Goethe
-
-Copyright (C) 2014 Tito Bouzout [tito.bouzout@gmail.com][]
-
-This license apply to all the files inside this program unless noted different for some files or portions of code inside these files.
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. <http://www.gnu.org/licenses/gpl.html>
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/gpl.html>
+See the [LICENSE](LICENSE.md) here.
 
 ## Helpful!? Support, Many thanks
 
-
-[Donate to support this project.][]
-
-  [Sublime Text 3+]: http://www.sublimetext.com/
-  []: https://www.dropbox.com/s/ckz5n2ncn2pxkii/sidebar.png?dl=1
-  [desktop]: http://pypi.python.org/pypi/desktop
-  [Send2Trash]: http://pypi.python.org/pypi/Send2Trash
-  [bfg-pages]: http://code.google.com/p/bfg-pages/
-  [tito.bouzout@gmail.com]: tito.bouzout@gmail.com
-  [Donate to support this project.]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW
+-   Sublime Text 3+ <http://www.sublimetext.com/)>
+-   <https://www.dropbox.com/s/ckz5n2ncn2pxkii/sidebar.png?dl=1>
+-   desktop <http://pypi.python.org/pypi/desktop>
+-   Send2Trash <http://pypi.python.org/pypi/Send2Trash>
+-   bfg-pages <http://code.google.com/p/bfg-pages/>
+-   <tito.bouzout@gmail.com>
+-   Donate to support this project. <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW>
