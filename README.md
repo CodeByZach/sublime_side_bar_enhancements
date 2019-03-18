@@ -2,7 +2,7 @@
 
 ## Description
 
-Provides enhancements to the operations on Sidebar of Files and Folders for Sublime Text. <https://www.sublimetext.com/>
+Provides enhancements to the operations on Sidebar of Files and Folders for [Sublime Text](https://www.sublimetext.com).
 
 Notably provides delete as "move to trash", open with.. and a clipboard.
 
