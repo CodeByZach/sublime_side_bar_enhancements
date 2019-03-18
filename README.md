@@ -2,7 +2,7 @@
 
 ## Description
 
-Provides enhancements to the operations on Sidebar of Files and Folders for Sublime Text. <http://www.sublimetext.com/>
+Provides enhancements to the operations on Sidebar of Files and Folders for Sublime Text. <https://www.sublimetext.com/>
 
 Notably provides delete as "move to trash", open with.. and a clipboard.
 
@@ -175,39 +175,35 @@ Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (no
 
 (check each license in project pages)
 
--   "getImageInfo" to get width and height for images from "bfg-pages". See: <http://code.google.com/p/bfg-pages/>
--   "desktop" to be able to open files with system handlers. See: <http://pypi.python.org/pypi/desktop>
--   "send2trash" to be able to send to the trash instead of deleting for ever!. See: <http://pypi.python.org/pypi/Send2Trash>
--   "hurry.filesize" to be able to format file sizes. See: <http://pypi.python.org/pypi/hurry.filesize/>
--   "Edit.py" ST2/3 Edit Abstraction. See: <http://www.sublimetext.com/forum/viewtopic.php?f=6&t=12551>
+-   "getImageInfo" to get width and height for images from "bfg-pages". See: <https://code.google.com/p/bfg-pages/>
+-   "desktop" to be able to open files with system handlers. See: <https://pypi.python.org/pypi/desktop>
+-   "send2trash" to be able to send to the trash instead of deleting for ever!. See: <https://pypi.python.org/pypi/Send2Trash>
+-   "hurry.filesize" to be able to format file sizes. See: <https://pypi.python.org/pypi/hurry.filesize/>
+-   "Edit.py" ST2/3 Edit Abstraction. See: <https://www.sublimetext.com/forum/viewtopic.php?f=6&t=12551>
 
 ## Source-code
 
-<https://github.com/SideBarEnhancements-org/SideBarEnhancements>
+<https://github.com/titoBouzout/SideBarEnhancements>
 
 ## Forum Thread
 
-<http://www.sublimetext.com/forum/viewtopic.php?f=5&t=3331>
+<https://www.sublimetext.com/forum/viewtopic.php?f=5&t=3331>
 
 # Contributors:
 
 (Thank you so much!)
 Aleksandar Urosevic, bofm, Dalibor Simacek, Devin Rhode, Eric Eldredge, Hewei Liu, Jeremy Gailor, Joao Antunes, Leif Ringstad, MauriceZ, Nick Zaccardi, Patrik Göthe, Peder Langdal, Randy Lai, Raphael DDL Oliveira, robwala, Stephen Horne, Sven Axelsson, Till Theis, Todd Wolfson, Tyler Thrailkill, Yaroslav Admin
 
-## TODO
-
-<https://github.com/SideBarEnhancements-org/SideBarEnhancements/issues/223>
-
 ## License
 
-See the [LICENSE](LICENSE.md) here.
+See the [LICENSE](LICENSE) here.
 
 ## Helpful!? Support, Many thanks
 
--   Sublime Text 3+ <http://www.sublimetext.com/)>
+-   Sublime Text 3+ <https://www.sublimetext.com/)>
 -   <https://www.dropbox.com/s/ckz5n2ncn2pxkii/sidebar.png?dl=1>
--   desktop <http://pypi.python.org/pypi/desktop>
--   Send2Trash <http://pypi.python.org/pypi/Send2Trash>
--   bfg-pages <http://code.google.com/p/bfg-pages/>
+-   desktop <https://pypi.python.org/pypi/desktop>
+-   Send2Trash <https://pypi.python.org/pypi/Send2Trash>
+-   bfg-pages <https://code.google.com/p/bfg-pages/>
 -   <tito.bouzout@gmail.com>
 -   Donate to support this project. <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW>
