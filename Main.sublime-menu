@@ -3,7 +3,8 @@
 		"caption": "File",
 		"mnemonic": "F",
 		"id": "file",
-		"children": [
+		"children":
+		[
 			{
 				"command": "side_bar_save_as_admin",
 				"caption": "Save as Admin"
@@ -11,78 +12,138 @@
 		]
 	},
 	{
-		"id": "preferences",
-		"children": [
+		"caption": "Tools",
+		"mnemonic": "T",
+		"id": "tools",
+		"children":
+		[
 			{
-				"id": "package-settings",
-				"children": [
+				"id": "packages",
+				"caption": "Packages",
+				"children":
+				[
 					{
-						"caption": "Side Bar",
-						"children": [
+						"caption": "Side​Bar​Enhancements",
+						"children":
+						[
 							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/SideBarEnhancements/Side Bar.sublime-settings"
-								},
-								"caption": "Settings – Default"
-							},
+								"command": "side_bar_save_as_admin",
+								"caption": "Save as Admin"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"caption": "Preferences",
+		"mnemonic": "n",
+		"id": "preferences",
+		"children":
+		[
+			{
+				"caption": "Package Settings",
+				"mnemonic": "P",
+				"id": "package-settings",
+				"children":
+				[
+					{
+						"caption": "Side​Bar​Enhancements",
+						"children":
+						[
 							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/User/Side Bar.sublime-settings"
-								},
-								"caption": "Settings – User"
+								"caption": "Settings",
+								"command": "edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/SideBarEnhancements/Side​Bar​Enhancements.sublime-settings",
+									"default": "{\n\t$0\n}\n"
+								}
 							},
 							{ "caption": "-" },
 							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/SideBarEnhancements/Default (OSX).sublime-keymap",
-									"platform": "OSX"
-								},
-								"caption": "Key Bindings – Default"
+								"caption": "Key Bindings",
+								"command": "z_edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/SideBarEnhancements/Default (${platform}).sublime-keymap",
+									"default": "[\n\t$0\n]\n"
+								}
+							},
+							{ "caption": "-" },
+							{
+								"caption": "Menus",
+								"children":
+								[
+									{
+										"caption": "Context Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"is_parent_setting": "1",
+											"base_file": "${packages}/SideBarEnhancements/Context.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
+									{
+										"caption": "Side Bar Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"is_parent_setting": "1",
+											"base_file": "${packages}/SideBarEnhancements/Side Bar.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
+									{
+										"caption": "Tab Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"is_parent_setting": "1",
+											"base_file": "${packages}/SideBarEnhancements/Tab Context.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									},
+									{
+										"caption": "Main Menu",
+										"command": "z_edit_settings",
+										"args":
+										{
+											"is_parent_setting": "1",
+											"base_file": "${packages}/SideBarEnhancements/Main.sublime-menu",
+											"default": "[\n\t$0\n]\n"
+										}
+									}
+								]
 							},
 							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/SideBarEnhancements/Default (Linux).sublime-keymap",
-									"platform": "Linux"
-								},
-								"caption": "Key Bindings – Default"
+								"caption": "Commands",
+								"command": "z_edit_settings",
+								"args":
+								{
+									"is_parent_setting": "1",
+									"base_file": "${packages}/SideBarEnhancements/Default.sublime-commands",
+									"default": "[\n\t$0\n]\n"
+								}
 							},
 							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/SideBarEnhancements/Default (Windows).sublime-keymap",
-									"platform": "Windows"
-								},
-								"caption": "Key Bindings – Default"
+								"caption": "Open With Applications",
+								"command": "z_edit_settings",
+								"args":
+								{
+									"base_file": "${packages}/SideBarEnhancements/open_with/Side Bar.sublime-menu",
+									"user_file": "${packages}/User/SideBarEnhancements/Open With/Side Bar (${platform}).sublime-menu",
+									"default": "[\n\t$0\n]\n"
+								}
 							},
+							{ "caption": "-" },
 							{
+								"caption": "README",
 								"command": "open_file",
-								"args": {
-									"file": "${packages}/User/Default (OSX).sublime-keymap",
-									"platform": "OSX"
-								},
-								"caption": "Key Bindings – User"
-							},
-							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/User/Default (Linux).sublime-keymap",
-									"platform": "Linux"
-								},
-								"caption": "Key Bindings – User"
-							},
-							{
-								"command": "open_file",
-								"args": {
-									"file": "${packages}/User/Default (Windows).sublime-keymap",
-									"platform": "Windows"
-								},
-								"caption": "Key Bindings – User"
-							},
-							{ "caption": "-" }
+								"args": { "file": "${packages}/SideBarEnhancements/README.md" }
+							}
 						]
 					}
 				]
