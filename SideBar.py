@@ -395,6 +395,104 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
         return not s.get("disabled_menuitem_open_run", False)
 
 
+# class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
+#     def run(self, paths=[]):
+#         platform = ""
+#         if sublime.platform() == "osx":
+#             platform = "OSX"
+#         elif sublime.platform() == "windows":
+#             platform = "Windows"
+#         else:
+#             platform = "Linux"
+
+#         item = SideBarItem(
+#             os.path.join(
+#                 sublime.packages_path(),
+#                 "User",
+#                 "SideBarEnhancements",
+#                 "Open With",
+#                 "Side Bar.sublime-menu",
+#             ),
+#             False,
+#         )
+#         if not item.exists() and False:
+#             item = SideBarItem(
+#                 os.path.join(
+#                     sublime.packages_path(),
+#                     "User",
+#                     "SideBarEnhancements",
+#                     "Open With",
+#                     "Side Bar (" + platform + ").sublime-menu",
+#                 ),
+#                 False,
+#             )
+
+#         if not item.exists():
+#             item.create()
+#             item.write(
+#                 """[
+#     {"id": "side-bar-files-open-with",
+#         "children":
+#         [
+
+#             //application 1
+#             {
+#                 "caption": "Photoshop",
+#                 "id": "side-bar-files-open-with-photoshop",
+
+#                 "command": "side_bar_files_open_with",
+#                 "args": {
+#                                     "paths": [],
+#                                     "application": "Adobe Photoshop CS5.app", // OSX
+#                                     "extensions":"psd|png|jpg|jpeg",  //any file with these extensions
+#                                     "args":[]
+#                                 },
+#                 "open_automatically" : false // will close the view/tab and launch the application
+#             },
+
+#             //separator
+#             {"caption":"-"},
+
+#             //application 2
+#             {
+#                 "caption": "SeaMonkey",
+#                 "id": "side-bar-files-open-with-seamonkey",
+
+#                 "command": "side_bar_files_open_with",
+#                 "args": {
+#                                     "paths": [],
+#                                     "application": "C:\\\\Archivos de programa\\\\SeaMonkey\\\\seamonkey.exe", // WINNT
+#                                     "extensions":"", //open all even folders
+#                                     "args":[]
+#                                 },
+#                 "open_automatically" : false // will close the view/tab and launch the application
+#             },
+#             //application n
+#             {
+#                 "caption": "Chrome",
+#                 "id": "side-bar-files-open-with-chrome",
+
+#                 "command": "side_bar_files_open_with",
+#                 "args": {
+#                                     "paths": [],
+#                                     "application": "C:\\\\Documents and Settings\\\\tito\\\\local\\\\Datos de programa\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+#                                     "extensions":".*", //any file with extension
+#                                     "args":[]
+#                         },
+#                 "open_automatically" : false // will close the view/tab and launch the application
+#             },
+
+#             {"caption":"-"}
+#         ]
+#     }
+# ]"""
+#             )
+#         item.edit()
+
+#     def is_enabled(self, paths=[]):
+#         return True
+
+
 class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
     def run(self, paths=[], application="", extensions=""):
         self.run(self, paths, application, extensions, args=[])
@@ -496,11 +594,40 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
 
 class SideBarFindInSelectedCommand(sublime_plugin.WindowCommand):
     def run(self, paths=[]):
+        if s.get("find_and_replace_discards_previous_search", False):
+            window = Window()
+            views = []
+            for view in window.views():
+                if view.name() == "Find Results":
+                    views.append(view)
+            for view in views:
+                view.close()
+
+        if s.get("find_and_replace_opens_in_new_view", True):
         window = Window()
         views = []
         for view in window.views():
             if view.name() == "Find Results":
+
+                    Window().focus_view(view)
+
+                    content = view.substr(sublime.Region(0, view.size()))
+
+                    _view = Window().new_file()
+                    with Edit(_view) as edit:
+                        edit.replace(sublime.Region(0, _view.size()), content)
+                    # the space at the end of the name prevents it from being reused by Sublime Text
+                    # it looks like instead of keeping an internal refrence they just look at the view name -__-
+                    _view.set_name("Find Results ")
+                    _view.set_syntax_file(
+                        "Packages/Default/Find Results.hidden-tmLanguage"
+                    )
+                    _view.sel().clear()
+                    for sel in view.sel():
+                        _view.sel().add(sel)
+                    _view.set_scratch(True)
                 views.append(view)
+
         for view in views:
             view.close()
         items = []
