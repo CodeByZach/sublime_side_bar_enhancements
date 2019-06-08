@@ -604,10 +604,10 @@ class SideBarFindInSelectedCommand(sublime_plugin.WindowCommand):
                 view.close()
 
         if s.get("find_and_replace_opens_in_new_view", True):
-        window = Window()
-        views = []
-        for view in window.views():
-            if view.name() == "Find Results":
+            window = Window()
+            views = []
+            for view in window.views():
+                if view.name() == "Find Results":
 
                     Window().focus_view(view)
 
@@ -626,10 +626,10 @@ class SideBarFindInSelectedCommand(sublime_plugin.WindowCommand):
                     for sel in view.sel():
                         _view.sel().add(sel)
                     _view.set_scratch(True)
-                views.append(view)
+                    views.append(view)
 
-        for view in views:
-            view.close()
+            for view in views:
+                view.close()
         items = []
         for item in SideBarSelection(paths).getSelectedItemsWithoutChildItems():
             items.append(item.path())
