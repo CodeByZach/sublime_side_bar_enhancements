@@ -97,41 +97,6 @@ Cache = Cache()
 Cache.cached = False
 
 
-class OpenWithListener(sublime_plugin.EventListener):
-    def on_load_async(self, view):
-        if view and view.file_name() and not view.settings().get("open_with_edit"):
-            item = SideBarItem(
-                os.path.join(
-                    sublime.packages_path(),
-                    "User",
-                    "SideBarEnhancements",
-                    "Open With",
-                    "Side Bar.sublime-menu",
-                ),
-                False,
-            )
-            if item.exists():
-                settings = sublime.decode_value(item.contentUTF8())
-                selection = SideBarSelection([view.file_name()])
-                for item in settings[0]["children"]:
-                    try:
-                        if item[
-                            "open_automatically"
-                        ] and selection.hasFilesWithExtension(
-                            item["args"]["extensions"]
-                        ):
-                            SideBarFilesOpenWithCommand(Window()).run(
-                                [view.file_name()],
-                                item["args"]["application"],
-                                item["args"]["extensions"],
-                                item["args"]["args"],
-                            )
-                            view.close()
-                            break
-                    except:
-                        pass
-
-
 class aaaaaSideBarCommand(sublime_plugin.WindowCommand):
     def run(self, paths=[]):
         pass
@@ -411,7 +376,7 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 #                 "User",
 #                 "SideBarEnhancements",
 #                 "Open With",
-#                 "Side Bar.sublime-menu",
+#                 "Side Bar.sublime-menu"
 #             ),
 #             False,
 #         )
@@ -422,72 +387,65 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 #                     "User",
 #                     "SideBarEnhancements",
 #                     "Open With",
-#                     "Side Bar (" + platform + ").sublime-menu",
+#                     "Side Bar (" + platform + ").sublime-menu"
 #                 ),
-#                 False,
+#                 False
 #             )
 
 #         if not item.exists():
 #             item.create()
 #             item.write(
 #                 """[
-#     {"id": "side-bar-files-open-with",
-#         "children":
-#         [
-
-#             //application 1
-#             {
-#                 "caption": "Photoshop",
-#                 "id": "side-bar-files-open-with-photoshop",
-
-#                 "command": "side_bar_files_open_with",
-#                 "args": {
-#                                     "paths": [],
-#                                     "application": "Adobe Photoshop CS5.app", // OSX
-#                                     "extensions":"psd|png|jpg|jpeg",  //any file with these extensions
-#                                     "args":[]
-#                                 },
-#                 "open_automatically" : false // will close the view/tab and launch the application
-#             },
-
-#             //separator
-#             {"caption":"-"},
-
-#             //application 2
-#             {
-#                 "caption": "SeaMonkey",
-#                 "id": "side-bar-files-open-with-seamonkey",
-
-#                 "command": "side_bar_files_open_with",
-#                 "args": {
-#                                     "paths": [],
-#                                     "application": "C:\\\\Archivos de programa\\\\SeaMonkey\\\\seamonkey.exe", // WINNT
-#                                     "extensions":"", //open all even folders
-#                                     "args":[]
-#                                 },
-#                 "open_automatically" : false // will close the view/tab and launch the application
-#             },
-#             //application n
-#             {
-#                 "caption": "Chrome",
-#                 "id": "side-bar-files-open-with-chrome",
-
-#                 "command": "side_bar_files_open_with",
-#                 "args": {
-#                                     "paths": [],
-#                                     "application": "C:\\\\Documents and Settings\\\\tito\\\\local\\\\Datos de programa\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
-#                                     "extensions":".*", //any file with extension
-#                                     "args":[]
+#                 {
+#                     "id": "side-bar-files-open-with",
+#                     "children": [
+#                         //application 1
+#                         {
+#                             "caption": "Photoshop",
+#                             "id": "side-bar-files-open-with-photoshop",
+#                             "command": "side_bar_files_open_with",
+#                             "args": {
+#                                 "paths": [],
+#                                 "application": "Adobe Photoshop CS5.app", // OSX
+#                                 "extensions":"psd|png|jpg|jpeg",  //any file with these extensions
+#                                 "args":[]
+#                             }
 #                         },
-#                 "open_automatically" : false // will close the view/tab and launch the application
-#             },
 
-#             {"caption":"-"}
-#         ]
-#     }
-# ]"""
+#                         //separator
+#                         { "caption": "-" },
+
+#                         //application 2
+#                         {
+#                             "caption": "SeaMonkey",
+#                             "id": "side-bar-files-open-with-seamonkey",
+#                             "command": "side_bar_files_open_with",
+#                             "args": {
+#                                 "paths": [],
+#                                 "application": "C:\\\\Archivos de programa\\\\SeaMonkey\\\\seamonkey.exe", // WINNT
+#                                 "extensions":"", //open all even folders
+#                                 "args":[]
+#                             }
+#                         },
+#                         //application n
+#                         {
+#                             "caption": "Chrome",
+#                             "id": "side-bar-files-open-with-chrome",
+#                             "command": "side_bar_files_open_with",
+#                             "args": {
+#                                 "paths": [],
+#                                 "application": "C:\\\\Documents and Settings\\\\tito\\\\local\\\\Datos de programa\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+#                                 "extensions":".*", //any file with extension
+#                                 "args":[]
+#                             }
+#                         },
+
+#                         { "caption": "-" }
+#                     ]
+#                 }
+#                 ]"""
 #             )
-#         item.edit()
+#             item.edit()
 
 #     def is_enabled(self, paths=[]):
 #         return True
@@ -508,7 +466,6 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
             items = SideBarSelection(paths).getSelectedFilesWithExtension(extensions)
         import subprocess
 
-        try:
             for item in items:
 
                 # $PATH - The full path to the current file, e. g., C:\Files\Chapter1.txt.
@@ -521,8 +478,7 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
                     args[k] = args[k].replace("$PATH", item.path())
                     args[k] = args[k].replace("$PROJECT", item.pathProject())
                     args[k] = args[k].replace(
-                        "$DIRNAME",
-                        item.path() if item.isDirectory() else item.dirname(),
+                    "$DIRNAME", item.path() if item.isDirectory() else item.dirname()
                     )
                     args[k] = args[k].replace(
                         "$NAME_NO_EXTENSION",
@@ -549,18 +505,9 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
                             shell=True,
                         )
                 else:
-                    try:
                         subprocess.Popen(
                             [application_name] + args + [escapeCMDWindows(item.name())],
                             cwd=item.dirname(),
-                        )
-                    except:
-                        subprocess.Popen(
-                            [application_name] + args + [escapeCMDWindows(item.name())]
-                        )
-        except:
-            sublime.error_message(
-                'Unable to "Open With..", probably incorrect path to application.'
             )
 
     def is_enabled(self, paths=[], application="", extensions=""):

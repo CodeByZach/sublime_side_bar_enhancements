@@ -22,19 +22,19 @@ Download or clone the contents of this repository to a folder named exactly as t
 
 Troubleshooting Installation:
 
--   First please note this package only adds a context menu to the "Folders" section and not to the "Open Files" section.
--   Open the package folder. Main menu -\> Preferences -\> Browse Packages.
--   Close Sublime Text.
--   Remove the folder "Packages/SideBarEnhancements"
--   Remove the folder "User/SideBarEnhancements"
--   Navigate one folder up, to "Installed Packages/", check for any instance of SideBarEnhancements and remove it.
--   Open ST, with Package Control go to : Remove Package, check for any instance of SideBarEnhancements and remove it.
--   Restart ST
--   Open ST, check if there is any entry about SideBarEnhancements in Package Control(in sections: "Remove Package" and just in case in "Enable Package")
--   Repeat until you find there no entry about SideBarEnhancements
--   Restart ST
--   Install it.
--   It works
+- First please note this package only adds a context menu to the "Folders" section and not to the "Open Files" section.
+- Open the package folder. Main menu -\> Preferences -\> Browse Packages.
+- Close Sublime Text.
+- Remove the folder "Packages/SideBarEnhancements"
+- Remove the folder "User/SideBarEnhancements"
+- Navigate one folder up, to "Installed Packages/", check for any instance of SideBarEnhancements and remove it.
+- Open ST, with Package Control go to : Remove Package, check for any instance of SideBarEnhancements and remove it.
+- Restart ST
+- Open ST, check if there is any entry about SideBarEnhancements in Package Control(in sections: "Remove Package" and just in case in "Enable Package")
+- Repeat until you find there no entry about SideBarEnhancements
+- Restart ST
+- Install it.
+- It works
 
 ## F12 key
 
@@ -48,8 +48,8 @@ F12 key allows you to open the current file in browser.
 
 ### With absolute paths
 
--   Right click any file on sidebar and select: "Project -\> Edit Projects Preview URLs"
--   Edit this file, and add your paths and URLs with the following structure:
+- Right click any file on sidebar and select: "Project -\> Edit Projects Preview URLs"
+- Edit this file, and add your paths and URLs with the following structure:
 
 <!-- -->
 
@@ -142,9 +142,9 @@ You may wish to add a key for opening "find in paths.."
 
 Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (note the extra subfolder levels). To open it, right-click on any file in an open project and select `Open With > Edit Applications...`
 
--   On OSX, the 'application' property simply takes the *name* of an application, to which the file at hand's full path will be passed as if with `open ...`, e.g.: "application": "Google Chrome"
--   On OSX, invoking *shell* commands is NOT supported.
--	You should change Caption and id of the menu item to be unique.
+- On OSX, the 'application' property simply takes the _name_ of an application, to which the file at hand's full path will be passed as if with `open ...`, e.g.: "application": "Google Chrome"
+- On OSX, invoking _shell_ commands is NOT supported.
+- You should change Caption and id of the menu item to be unique.
 
 <!-- -->
 
@@ -159,27 +159,26 @@ Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (no
 			"extensions":"psd|png|jpg|jpeg",  //any file with these extensions
 			"args":[]
 		}
-		"open_automatically" : true // will close the view/tab and launch the application
 	},
 
 ### Vars on "args" param
 
-- $PATH - The full path to the current file, "C:\Files\Chapter1.txt"
-- $PROJECT - The root directory of the current project.
-- $DIRNAME - The directory of the current file, "C:\Files"
-- $NAME - The name portion of the current file, "Chapter1.txt"
-- $NAME_NO_EXTENSION - The name portion of the current file without the extension, "Chapter1"
-- $EXTENSION - The extension portion of the current file, "txt"
+- \$PATH - The full path to the current file, "C:\Files\Chapter1.txt"
+- \$PROJECT - The root directory of the current project.
+- \$DIRNAME - The directory of the current file, "C:\Files"
+- \$NAME - The name portion of the current file, "Chapter1.txt"
+- \$NAME_NO_EXTENSION - The name portion of the current file without the extension, "Chapter1"
+- \$EXTENSION - The extension portion of the current file, "txt"
 
 ## Using the External Libraries
 
 (check each license in project pages)
 
--   "getImageInfo" to get width and height for images from "bfg-pages". See: <https://code.google.com/p/bfg-pages/>
--   "desktop" to be able to open files with system handlers. See: <https://pypi.python.org/pypi/desktop>
--   "send2trash" to be able to send to the trash instead of deleting for ever!. See: <https://pypi.python.org/pypi/Send2Trash>
--   "hurry.filesize" to be able to format file sizes. See: <https://pypi.python.org/pypi/hurry.filesize/>
--   "Edit.py" ST2/3 Edit Abstraction. See: <https://www.sublimetext.com/forum/viewtopic.php?f=6&t=12551>
+- "getImageInfo" to get width and height for images from "bfg-pages". See: <https://code.google.com/p/bfg-pages/>
+- "desktop" to be able to open files with system handlers. See: <https://pypi.python.org/pypi/desktop>
+- "send2trash" to be able to send to the trash instead of deleting for ever!. See: <https://pypi.python.org/pypi/Send2Trash>
+- "hurry.filesize" to be able to format file sizes. See: <https://pypi.python.org/pypi/hurry.filesize/>
+- "Edit.py" ST2/3 Edit Abstraction. See: <https://www.sublimetext.com/forum/viewtopic.php?f=6&t=12551>
 
 ## Source-code
 
@@ -196,14 +195,25 @@ Aleksandar Urosevic, bofm, Dalibor Simacek, Devin Rhode, Eric Eldredge, Hewei Li
 
 ## License
 
+"None are so hopelessly enslaved as those who falsely believe they are free." Johann Wolfgang von Goethe
+
+Copyright (C) 2014 Tito Bouzout [tito.bouzout@gmail.com][]
+
+This license apply to all the files inside this program unless noted different for some files or portions of code inside these files.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. <http://www.gnu.org/licenses/gpl.html>
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/gpl.html>
+
+## Helpful!? Support, Many thanks ^\_^
+
 See the [LICENSE](LICENSE) here.
 
-## Helpful!? Support, Many thanks
-
--   Sublime Text 3+ <https://www.sublimetext.com/)>
--   <https://www.dropbox.com/s/ckz5n2ncn2pxkii/sidebar.png?dl=1>
--   desktop <https://pypi.python.org/pypi/desktop>
--   Send2Trash <https://pypi.python.org/pypi/Send2Trash>
--   bfg-pages <https://code.google.com/p/bfg-pages/>
--   <tito.bouzout@gmail.com>
--   Donate to support this project. <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW>
+- <https://www.dropbox.com/s/ckz5n2ncn2pxkii/sidebar.png?dl=1>
+- desktop <https://pypi.python.org/pypi/desktop>
+- Send2Trash <https://pypi.python.org/pypi/Send2Trash>
+- bfg-pages <https://code.google.com/p/bfg-pages/>
+- <tito.bouzout@gmail.com>
+- Donate to support this project. <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW>
