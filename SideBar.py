@@ -466,49 +466,49 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
             items = SideBarSelection(paths).getSelectedFilesWithExtension(extensions)
         import subprocess
 
-            for item in items:
+        for item in items:
 
-                # $PATH - The full path to the current file, e. g., C:\Files\Chapter1.txt.
-                # $PROJECT - The root directory of the current project.
-                # $DIRNAME - The directory of the current file, e. g., C:\Files.
-                # $NAME - The name portion of the current file, e. g., Chapter1.txt.
-                # $EXTENSION - The extension portion of the current file, e. g., txt.
+            # $PATH - The full path to the current file, e. g., C:\Files\Chapter1.txt.
+            # $PROJECT - The root directory of the current project.
+            # $DIRNAME - The directory of the current file, e. g., C:\Files.
+            # $NAME - The name portion of the current file, e. g., Chapter1.txt.
+            # $EXTENSION - The extension portion of the current file, e. g., txt.
 
-                for k in range(len(args)):
-                    args[k] = args[k].replace("$PATH", item.path())
-                    args[k] = args[k].replace("$PROJECT", item.pathProject())
-                    args[k] = args[k].replace(
+            for k in range(len(args)):
+                args[k] = args[k].replace("$PATH", item.path())
+                args[k] = args[k].replace("$PROJECT", item.pathProject())
+                args[k] = args[k].replace(
                     "$DIRNAME", item.path() if item.isDirectory() else item.dirname()
-                    )
-                    args[k] = args[k].replace(
-                        "$NAME_NO_EXTENSION",
-                        item.name().replace("." + item.extension(), ""),
-                    )
-                    args[k] = args[k].replace("$NAME", item.name())
-                    args[k] = args[k].replace("$EXTENSION", item.extension())
+                )
+                args[k] = args[k].replace(
+                    "$NAME_NO_EXTENSION",
+                    item.name().replace("." + item.extension(), ""),
+                )
+                args[k] = args[k].replace("$NAME", item.name())
+                args[k] = args[k].replace("$EXTENSION", item.extension())
 
-                if sublime.platform() == "osx":
+            if sublime.platform() == "osx":
+                subprocess.Popen(
+                    ["open", "-a", application] + args + [item.name()],
+                    cwd=item.dirname(),
+                )
+            elif sublime.platform() == "windows":
+                try:
                     subprocess.Popen(
-                        ["open", "-a", application] + args + [item.name()],
-                        cwd=item.dirname(),
+                        [application_name] + args + [escapeCMDWindows(item.path())],
+                        cwd=expandVars(application_dir),
+                        shell=True,
                     )
-                elif sublime.platform() == "windows":
-                    try:
-                        subprocess.Popen(
-                            [application_name] + args + [escapeCMDWindows(item.path())],
-                            cwd=expandVars(application_dir),
-                            shell=True,
-                        )
-                    except:
-                        subprocess.Popen(
-                            [application_name] + args + [escapeCMDWindows(item.path())],
-                            shell=True,
-                        )
-                else:
-                        subprocess.Popen(
-                            [application_name] + args + [escapeCMDWindows(item.name())],
-                            cwd=item.dirname(),
-            )
+                except:
+                    subprocess.Popen(
+                        [application_name] + args + [escapeCMDWindows(item.path())],
+                        shell=True,
+                    )
+            else:
+                subprocess.Popen(
+                    [application_name] + args + [escapeCMDWindows(item.name())],
+                    cwd=item.dirname(),
+                )
 
     def is_enabled(self, paths=[], application="", extensions=""):
         self.is_enabled(self, paths, application, extensions, args=[])
