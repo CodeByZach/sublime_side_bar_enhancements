@@ -12,31 +12,6 @@
 		]
 	},
 	{
-		"caption": "Tools",
-		"mnemonic": "T",
-		"id": "tools",
-		"children":
-		[
-			{
-				"id": "packages",
-				"caption": "Packages",
-				"children":
-				[
-					{
-						"caption": "Side​Bar​Enhancements",
-						"children":
-						[
-							{
-								"command": "side_bar_save_as_admin",
-								"caption": "Save as Admin"
-							}
-						]
-					}
-				]
-			}
-		]
-	},
-	{
 		"caption": "Preferences",
 		"mnemonic": "n",
 		"id": "preferences",
