@@ -1,4 +1,5 @@
 # Sidebar Enhancements
+[![Latest Release](https://img.shields.io/github/tag/EatBreatheCode/sublime_side_bar_enhancements.svg?label=version)](https://github.com/EatBreatheCode/sublime_side_bar_enhancements/releases)
 
 ## Description
 
@@ -182,7 +183,7 @@ Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (no
 
 ## Source-code
 
-<https://github.com/titoBouzout/SideBarEnhancements>
+<https://github.com/EatBreatheCode/sublime_side_bar_enhancements>
 
 ## Forum Thread
 
@@ -206,14 +207,3 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/gpl.html>
-
-## Helpful!? Support, Many thanks ^\_^
-
-See the [LICENSE](LICENSE) here.
-
-- <https://www.dropbox.com/s/ckz5n2ncn2pxkii/sidebar.png?dl=1>
-- desktop <https://pypi.python.org/pypi/desktop>
-- Send2Trash <https://pypi.python.org/pypi/Send2Trash>
-- bfg-pages <https://code.google.com/p/bfg-pages/>
-- <tito.bouzout@gmail.com>
-- Donate to support this project. <https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW>
