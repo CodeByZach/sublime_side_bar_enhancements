@@ -1,5 +1,5 @@
 # Sidebar Enhancements
-[![Latest Release](https://img.shields.io/github/tag/EatBreatheCode/sublime_side_bar_enhancements.svg?label=version)](https://github.com/EatBreatheCode/sublime_side_bar_enhancements/releases)
+[![Latest Release](https://img.shields.io/github/tag/CodeByZach/sublime_side_bar_enhancements.svg?label=version)](https://github.com/CodeByZach/sublime_side_bar_enhancements/releases)
 
 ## Description
 
@@ -183,7 +183,7 @@ Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (no
 
 ## Source-code
 
-<https://github.com/EatBreatheCode/sublime_side_bar_enhancements>
+<https://github.com/CodeByZach/sublime_side_bar_enhancements>
 
 ## Forum Thread
 
