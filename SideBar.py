@@ -111,13 +111,14 @@ class SideBarNewFileCommand(sublime_plugin.WindowCommand):
         import functools
 
         Window().run_command("hide_panel")
-        Window().show_input_panel(
+        view = Window().show_input_panel(
             "File Name:",
             name,
             functools.partial(self.on_done, paths, False),
             None,
             None,
         )
+        Window().focus_view(view)
 
     def on_done(self, paths, relative_to_project, name):
         _paths = paths
@@ -162,13 +163,14 @@ class SideBarNewFile2Command(sublime_plugin.WindowCommand):
         import functools
 
         Window().run_command("hide_panel")
-        Window().show_input_panel(
+        view = Window().show_input_panel(
             "File Name:",
             name,
             functools.partial(SideBarNewFileCommand(Window()).on_done, paths, True),
             None,
             None,
         )
+        Window().focus_view(view)
 
 
 class SideBarNewDirectory2Command(sublime_plugin.WindowCommand):
@@ -176,7 +178,7 @@ class SideBarNewDirectory2Command(sublime_plugin.WindowCommand):
         import functools
 
         Window().run_command("hide_panel")
-        Window().show_input_panel(
+        view = Window().show_input_panel(
             "Folder Name:",
             name,
             functools.partial(
@@ -185,6 +187,7 @@ class SideBarNewDirectory2Command(sublime_plugin.WindowCommand):
             None,
             None,
         )
+        Window().focus_view(view)
 
 
 class SideBarNewDirectoryCommand(sublime_plugin.WindowCommand):
@@ -192,13 +195,14 @@ class SideBarNewDirectoryCommand(sublime_plugin.WindowCommand):
         import functools
 
         Window().run_command("hide_panel")
-        Window().show_input_panel(
+        view = Window().show_input_panel(
             "Folder Name:",
             name,
             functools.partial(self.on_done, paths, False),
             None,
             None,
         )
+        Window().focus_view(view)
 
     def on_done(self, paths, relative_to_project, name):
         _paths = paths
@@ -452,9 +456,6 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 
 
 class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
-    def run(self, paths=[], application="", extensions=""):
-        self.run(self, paths, application, extensions, args=[])
-
     def run(self, paths=[], application="", extensions="", args=[]):
         application_dir, application_name = os.path.split(application)
 
@@ -559,10 +560,12 @@ class SideBarFindInSelectedCommand(sublime_plugin.WindowCommand):
                     Window().focus_view(view)
 
                     content = view.substr(sublime.Region(0, view.size()))
-
                     _view = Window().new_file()
-                    with Edit(_view) as edit:
-                        edit.replace(sublime.Region(0, _view.size()), content)
+
+                    _view.settings().set("auto_indent", False)
+                    _view.run_command("insert", {"characters": content})
+                    _view.settings().erase("auto_indent")
+
                     # the space at the end of the name prevents it from being reused by Sublime Text
                     # it looks like instead of keeping an internal refrence they just look at the view name -__-
                     _view.set_name("Find Results ")
@@ -577,6 +580,8 @@ class SideBarFindInSelectedCommand(sublime_plugin.WindowCommand):
 
             for view in views:
                 view.close()
+
+        # fill form
         items = []
         for item in SideBarSelection(paths).getSelectedItemsWithoutChildItems():
             items.append(item.path())
@@ -1428,7 +1433,7 @@ class SideBarCopyTagImgCommand(sublime_plugin.WindowCommand):
             return
         if imghdr.what(fname) == "png":
             check = struct.unpack(">i", head[4:8])[0]
-            if check != 0x0d0a1a0a:
+            if check != 0x0D0A1A0A:
                 return
             width, height = struct.unpack(">ii", head[16:24])
         elif imghdr.what(fname) == "gif":
@@ -1438,10 +1443,10 @@ class SideBarCopyTagImgCommand(sublime_plugin.WindowCommand):
                 fhandle.seek(0)  # Read 0xff next
                 size = 2
                 ftype = 0
-                while not 0xc0 <= ftype <= 0xcf:
+                while not 0xC0 <= ftype <= 0xCF:
                     fhandle.seek(size, 1)
                     byte = fhandle.read(1)
-                    while ord(byte) == 0xff:
+                    while ord(byte) == 0xFF:
                         byte = fhandle.read(1)
                     ftype = ord(byte)
                     size = struct.unpack(">H", fhandle.read(2))[0] - 2
@@ -1617,6 +1622,8 @@ class SideBarDuplicateCommand(sublime_plugin.WindowCommand):
             None,
             None,
         )
+        Window().focus_view(view)
+
         view.sel().clear()
         view.sel().add(
             sublime.Region(
@@ -1690,6 +1697,8 @@ class SideBarRenameCommand(sublime_plugin.WindowCommand):
             None,
             None,
         )
+        Window().focus_view(view)
+
         view.sel().clear()
         view.sel().add(
             sublime.Region(
@@ -1751,9 +1760,10 @@ class SideBarMassRenameCommand(sublime_plugin.WindowCommand):
         import functools
 
         Window().run_command("hide_panel")
-        Window().show_input_panel(
+        view = Window().show_input_panel(
             "Find:", "", functools.partial(self.on_find, paths), None, None
         )
+        Window().focus_view(view)
 
     def on_find(self, paths, find):
         if not find:
@@ -1761,9 +1771,10 @@ class SideBarMassRenameCommand(sublime_plugin.WindowCommand):
         import functools
 
         Window().run_command("hide_panel")
-        Window().show_input_panel(
+        view = Window().show_input_panel(
             "Replace:", "", functools.partial(self.on_replace, paths, find), None, None
         )
+        Window().focus_view(view)
 
     def on_replace(self, paths, find, replace):
         key = "mass-renaming-" + str(time.time())
@@ -1838,6 +1849,8 @@ class SideBarMoveCommand(sublime_plugin.WindowCommand):
             None,
             None,
         )
+        Window().focus_view(view)
+
         view.sel().clear()
         view.sel().add(
             sublime.Region(
@@ -1948,7 +1961,13 @@ class SideBarDeleteCommand(sublime_plugin.WindowCommand):
                     ):
                         item.closeViews()
                     if sublime.platform() == "windows":
-                        self.remove("\\\\?\\" + item.path())
+                        try:
+                            # this is for deleting "large path names"
+                            self.remove("\\\\?\\" + item.path())
+                        except:
+                            # this is for deleting network paths
+                            self.remove(item.path())
+
                     else:
                         self.remove(item.path())
                 SideBarProject().refresh()
@@ -2486,6 +2505,7 @@ class SideBarOpenInBrowserThread(threading.Thread):
                     items.extend([s.get("portable_browser", "")])
                 items.extend(
                     [
+                        "/usr/bin/firefox-developer-edition",
                         "/usr/bin/firefox",
                         "%PROGRAMFILES%\\Firefox Developer Edition\\firefox.exe",
                         "%PROGRAMFILES(X86)%\\Firefox Developer Edition\\firefox.exe",
@@ -2690,7 +2710,9 @@ class SideBarSaveAsAdminCommand(sublime_plugin.WindowCommand):
                 ]
             )
             f.close()
+        view.set_scratch(True)
         view.run_command("revert")
+        view.set_scratch(False)
 
     def is_visible(self):
         return platform.system() == "Windows" or os.name == "nt"
