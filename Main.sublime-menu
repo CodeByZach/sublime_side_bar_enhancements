@@ -24,7 +24,7 @@
 				"children":
 				[
 					{
-						"caption": "Side​Bar​Enhancements",
+						"caption": "Side Bar Enhancements",
 						"children":
 						[
 							{
@@ -32,7 +32,7 @@
 								"command": "edit_settings",
 								"args":
 								{
-									"base_file": "${packages}/SideBarEnhancements/Side​Bar​Enhancements.sublime-settings",
+									"base_file": "${packages}/SideBarEnhancements/SideBarEnhancements.sublime-settings",
 									"default": "{\n\t$0\n}\n"
 								}
 							},

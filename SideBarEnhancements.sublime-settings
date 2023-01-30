@@ -31,10 +31,10 @@
 	"disabled_menuitem_folder_save": false,
 	"disabled_menuitem_folder_close": false,
 
-	//one of this list: firefox, firefox-developer-edition, chrome, canary, chromium, opera, safari, ie, edge
+	// One from this list: firefox, firefox-developer-edition, chrome, canary, chromium, opera, safari, ie, edge
 	"default_browser": "",
 
-	//any of this list: firefox, firefox-developer-edition, chrome, canary, chromium, opera, safari, ie, edge
+	// Any from this list: firefox, firefox-developer-edition, chrome, canary, chromium, opera, safari, ie, edge
 	"open_all_browsers": [
 		"firefox",
 		"firefox-developer-edition",
@@ -45,7 +45,8 @@
 		"edge"
 	],
 
-	"portable_browser": "", // (complete path to executable) for example:  C:/Program Files (x86)/Nightly/firefox.exe
+	// Complete path to executable, for example:  C:/Program Files (x86)/Nightly/firefox.exe
+	"portable_browser": "",
 
 	"disable_send_to_trash": false,
 
@@ -57,7 +58,6 @@
 	"find_and_replace_discards_previous_search": false,
 	"find_and_replace_opens_in_new_view": true,
 
-	// if you donated set this value to "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW"
-	// to remove the menuitem "Donate 20$" from the sidebar context menu.
+	// To remove the menuitem "Donate 20$" from the sidebar context menu.
 	"i_donated_to_sidebar_enhancements_developer": true
 }

@@ -1,9 +1,9 @@
-# Sidebar Enhancements
+# Side Bar Enhancements
 [![Latest Release](https://img.shields.io/github/tag/CodeByZach/sublime_side_bar_enhancements.svg?label=version)](https://github.com/CodeByZach/sublime_side_bar_enhancements/releases)
 
 ## Description
 
-Provides enhancements to the operations on Sidebar of Files and Folders for [Sublime Text](https://www.sublimetext.com).
+Provides enhancements to the operations on Side Bar of Files and Folders for [Sublime Text](https://www.sublimetext.com).
 
 Notably provides delete as "move to trash", open with.. and a clipboard.
 
@@ -54,11 +54,10 @@ F12 key allows you to open the current file in browser.
 
 ### With absolute paths
 
-- Right click any file on sidebar and select: "Project -\> Edit Projects Preview URLs"
+- Right click any file on the Side Bar and select: "Project -\> Edit Projects Preview URLs"
 - Edit this file, and add your paths and URLs with the following structure:
 
 <!-- -->
-
 	{
 		"S:/www/domain.tld":{
 			"url_testing":"http://testing",
@@ -101,13 +100,13 @@ with content:
 		}
 	}
 
-...
-
 You can create config files `some/folder/.sublime/SideBarEnhancements.json` anywhere.
 
 #### F12 key conflict
 
-On Sublime Text 3 `F12` key is bound to `"goto_definition"` command by default. This package was conflicting with that key, this no longers happens. You need to manually add the keys now: Go to `Preferences -> Package Settings -> Side Bar -> Key Bindings - User` and add any of the following:
+On Sublime Text 3 `F12` key is bound to `"goto_definition"` command by default. This package was conflicting with that key, this no longers happens. You need to manually add the keys now, go to:
+`Preferences -> Package Settings -> Side Bar -> Key Bindings - User`
+and add any of the following:
 
 		[
 			{ "keys": ["f12"],
@@ -148,22 +147,22 @@ You may wish to add a key for opening "find in paths.."
 
 Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (note the extra subfolder levels). To open it, right-click on any file in an open project and select `Open With > Edit Applications...`
 
-- On OSX, the 'application' property simply takes the _name_ of an application, to which the file at hand's full path will be passed as if with `open ...`, e.g.: "application": "Google Chrome"
-- On OSX, invoking _shell_ commands is NOT supported.
+- On macOS, the 'application' property simply takes the _name_ of an application, to which the file at hand's full path will be passed as if with `open ...`, e.g.: "application": "Google Chrome"
+- On macOS, invoking _shell_ commands is NOT supported.
 - You should change Caption and id of the menu item to be unique.
 
 <!-- -->
-
-	//application 1
+	// Application 1
 	{
 		"caption": "Photoshop",
 		"id": "side-bar-files-open-with-photoshop",
 		"command": "side_bar_files_open_with",
 		"args": {
 			"paths": [],
-			"application": "Adobe Photoshop CS5.app", // OSX
-			"extensions":"psd|png|jpg|jpeg",  //any file with these extensions
-			"args":[]
+			"application": "Adobe Photoshop CS5.app", // macOS
+			"extensions": "psd|png|jpg|jpeg",  // Any file with these extensions
+			"args": [],
+			"multiple": true
 		}
 	},
 
@@ -202,14 +201,4 @@ Aleksandar Urosevic, bofm, Dalibor Simacek, Devin Rhode, Eric Eldredge, Hewei Li
 
 ## License
 
-"None are so hopelessly enslaved as those who falsely believe they are free." Johann Wolfgang von Goethe
-
-Copyright (C) 2014-2022 Tito Bouzout
-
-This license apply to all the files inside this program unless noted different for some files or portions of code inside these files.
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. <http://www.gnu.org/licenses/gpl.html>
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/gpl.html>
+Side Bar Enhancements is released under the [GNU General Public License](LICENSE).

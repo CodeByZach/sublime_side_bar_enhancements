@@ -5,39 +5,42 @@
  * 		"caption": "Photoshop",
  * 		"command": "side_bar_files_open_with",
  * 		"id": "side-bar-files-open-with-photoshop",
- * 		"open_automatically" : false, // will close the view/tab and launch the application
+ * 		"open_automatically": false, // Will close the view/tab and launch the application
  * 		"args":
  * 		{
  * 			"paths": [],
- * 			"application": "Adobe Photoshop CS5.app", // OSX
- * 			"extensions":"psd|png|jpg|jpeg", //any file with these extensions
- * 			"args":[]
+ * 			"application": "Adobe Photoshop CS5.app", // macOS
+ * 			"extensions": "psd|png|jpg|jpeg", // Any file with these extensions
+ * 			"args": [],
+ * 			"multiple": true
  * 		}
  * 	},
  * 	{
  * 		"caption": "SeaMonkey",
  * 		"command": "side_bar_files_open_with",
  * 		"id": "side-bar-files-open-with-seamonkey",
- * 		"open_automatically" : false, // will close the view/tab and launch the application
+ * 		"open_automatically": false, // will close the view/tab and launch the application
  * 		"args":
  * 		{
  * 			"paths": [],
  * 			"application": "C:\\Archivos de programa\\SeaMonkey\\seamonkey.exe", // WINNT
- * 			"extensions":"", //open all even folders
- * 			"args":[]
+ * 			"extensions": "", // Open all even folders
+ * 			"args": [],
+ * 			"multiple": true
  * 		}
  * 	},
  * 	{
  * 		"caption": "Chrome",
  * 		"command": "side_bar_files_open_with",
  * 		"id": "side-bar-files-open-with-chrome",
- * 		"open_automatically" : false, // will close the view/tab and launch the application
+ * 		"open_automatically": false, // Will close the view/tab and launch the application
  * 		"args":
  * 		{
  * 			"paths": [],
  * 			"application": "C:\\Documents and Settings\\tito\\local\\Datos de programa\\Google\\Chrome\\Application\\chrome.exe",
- * 			"extensions":".*", //any file with extension
- * 			"args":[]
+ * 			"extensions": ".*", // Any file with extension
+ * 			"args": [],
+ * 			"multiple": true
  * 		}
  * 	}
  */
