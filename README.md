@@ -17,6 +17,11 @@ Preference to control if a buffer should be closed when affected by a deletion o
 
 Allows to display "file modified date" and "file size" on statusbar (may be a bit buggy).
 
+To get rid of the stock ST menuitems create two empty files on "Preferences -> Browse Packages"
+
+- `Default/Side Bar Mount Point.sublime-menu`
+- `Default/Side Bar.sublime-menu`
+
 ## Installation
 
 Download or clone the contents of this repository to a folder named exactly as the package name into the Packages/ folder of ST.
@@ -191,14 +196,15 @@ Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (no
 
 # Contributors:
 
-(Thank you so much!)
+Thank you so much!
+
 Aleksandar Urosevic, bofm, Dalibor Simacek, Devin Rhode, Eric Eldredge, Hewei Liu, Jeremy Gailor, Joao Antunes, Leif Ringstad, MauriceZ, Nick Zaccardi, Patrik Göthe, Peder Langdal, Randy Lai, Raphael DDL Oliveira, robwala, Stephen Horne, Sven Axelsson, Till Theis, Todd Wolfson, Tyler Thrailkill, Yaroslav Admin
 
 ## License
 
 "None are so hopelessly enslaved as those who falsely believe they are free." Johann Wolfgang von Goethe
 
-Copyright (C) 2014 Tito Bouzout [tito.bouzout@gmail.com][]
+Copyright (C) 2014-2022 Tito Bouzout
 
 This license apply to all the files inside this program unless noted different for some files or portions of code inside these files.
 

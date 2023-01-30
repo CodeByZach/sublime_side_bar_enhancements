@@ -373,7 +373,7 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 #             platform = "Windows"
 #         else:
 #             platform = "Linux"
-
+#
 #         item = SideBarItem(
 #             os.path.join(
 #                 sublime.packages_path(),
@@ -395,7 +395,7 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 #                 ),
 #                 False
 #             )
-
+#
 #         if not item.exists():
 #             item.create()
 #             item.write(
@@ -412,13 +412,14 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 #                                 "paths": [],
 #                                 "application": "Adobe Photoshop CS5.app", // OSX
 #                                 "extensions":"psd|png|jpg|jpeg",  //any file with these extensions
-#                                 "args":[]
+#                                 "args":[],
+#                                 "multiple":true
 #                             }
 #                         },
-
+#
 #                         //separator
 #                         { "caption": "-" },
-
+#
 #                         //application 2
 #                         {
 #                             "caption": "SeaMonkey",
@@ -428,7 +429,8 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 #                                 "paths": [],
 #                                 "application": "C:\\\\Archivos de programa\\\\SeaMonkey\\\\seamonkey.exe", // WINNT
 #                                 "extensions":"", //open all even folders
-#                                 "args":[]
+#                                 "args":[],
+#                                 "multiple":true
 #                             }
 #                         },
 #                         //application n
@@ -440,23 +442,24 @@ class SideBarOpenCommand(sublime_plugin.WindowCommand):
 #                                 "paths": [],
 #                                 "application": "C:\\\\Documents and Settings\\\\tito\\\\local\\\\Datos de programa\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
 #                                 "extensions":".*", //any file with extension
-#                                 "args":[]
+#                                 "args":[],
+#                                 "multiple":true
 #                             }
 #                         },
-
+#
 #                         { "caption": "-" }
 #                     ]
 #                 }
 #                 ]"""
 #             )
 #             item.edit()
-
+#
 #     def is_enabled(self, paths=[]):
 #         return True
 
 
 class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
-    def run(self, paths=[], application="", extensions="", args=[]):
+    def run(self, paths=[], application="", extensions="", args=[], multiple=False):
         application_dir, application_name = os.path.split(application)
 
         if extensions == "*":
@@ -467,47 +470,79 @@ class SideBarFilesOpenWithCommand(sublime_plugin.WindowCommand):
             items = SideBarSelection(paths).getSelectedFilesWithExtension(extensions)
         import subprocess
 
-        for item in items:
+        if not multiple:
+            for item in items:
+                # $PATH - The full path to the current file, e. g., C:\Files\Chapter1.txt.
+                # $PROJECT - The root directory of the current project.
+                # $DIRNAME - The directory of the current file, e. g., C:\Files.
+                # $NAME - The name portion of the current file, e. g., Chapter1.txt.
+                # $EXTENSION - The extension portion of the current file, e. g., txt.
 
+                for k in range(len(args)):
+                    args[k] = args[k].replace("$PATH", item.path())
+                    args[k] = args[k].replace("$PROJECT", item.pathProject())
+                    args[k] = args[k].replace(
+                        "$DIRNAME",
+                        item.path() if item.isDirectory() else item.dirname(),
+                    )
+                    args[k] = args[k].replace(
+                        "$NAME_NO_EXTENSION",
+                        item.name().replace("." + item.extension(), ""),
+                    )
+                    args[k] = args[k].replace("$NAME", item.name())
+                    args[k] = args[k].replace("$EXTENSION", item.extension())
+
+                if sublime.platform() == "osx":
+                    subprocess.Popen(
+                        ["open", "-a", application] + args + [item.name()],
+                        cwd=item.dirname(),
+                    )
+                elif sublime.platform() == "windows":
+                    try:
+                        subprocess.Popen(
+                            [application_name] + args + [escapeCMDWindows(item.path())],
+                            cwd=expandVars(application_dir),
+                            shell=True,
+                        )
+                    except:
+                        subprocess.Popen(
+                            [application_name] + args + [escapeCMDWindows(item.path())],
+                            shell=True,
+                        )
+                else:
+                    subprocess.Popen(
+                        [application_name] + args + [(item.name())],
+                        cwd=item.dirname(),
+                    )
+        else:
             # $PATH - The full path to the current file, e. g., C:\Files\Chapter1.txt.
             # $PROJECT - The root directory of the current project.
             # $DIRNAME - The directory of the current file, e. g., C:\Files.
             # $NAME - The name portion of the current file, e. g., Chapter1.txt.
             # $EXTENSION - The extension portion of the current file, e. g., txt.
-
-            for k in range(len(args)):
-                args[k] = args[k].replace("$PATH", item.path())
-                args[k] = args[k].replace("$PROJECT", item.pathProject())
-                args[k] = args[k].replace(
-                    "$DIRNAME", item.path() if item.isDirectory() else item.dirname()
-                )
-                args[k] = args[k].replace(
-                    "$NAME_NO_EXTENSION",
-                    item.name().replace("." + item.extension(), ""),
-                )
-                args[k] = args[k].replace("$NAME", item.name())
-                args[k] = args[k].replace("$EXTENSION", item.extension())
+            for k in range(len(items)):
+                if sublime.platform() == "windows":
+                    items[k] = escapeCMDWindows(items[k].path())
+                else:
+                    items[k] = items[k].path()
 
             if sublime.platform() == "osx":
-                subprocess.Popen(
-                    ["open", "-a", application] + args + [item.name()],
-                    cwd=item.dirname(),
-                )
+                subprocess.Popen(["open", "-a", application] + args + items)
             elif sublime.platform() == "windows":
                 try:
                     subprocess.Popen(
-                        [application_name] + args + [escapeCMDWindows(item.path())],
+                        [application_name] + args + items,
                         cwd=expandVars(application_dir),
                         shell=True,
                     )
                 except:
                     subprocess.Popen(
-                        [application_name] + args + [escapeCMDWindows(item.path())],
+                        [application_name] + args + items,
                         shell=True,
                     )
             else:
                 subprocess.Popen(
-                    [application_name] + args + [escapeCMDWindows(item.name())],
+                    [application_name] + args + items,
                     cwd=item.dirname(),
                 )
 
@@ -2210,7 +2245,7 @@ class SideBarProjectItemAddCommand(sublime_plugin.WindowCommand):
         for item in SideBarSelection(paths).getSelectedDirectories():
             project.add(item.path())
 
-    def is_enabled(self, paths=[]):
+    def is_visible(self, paths=[]):
         return (
             CACHED_SELECTION(paths).hasDirectories()
             and CACHED_SELECTION(paths).hasProjectDirectories() is False
@@ -2221,7 +2256,7 @@ class SideBarProjectItemRemoveFolderCommand(sublime_plugin.WindowCommand):
     def run(self, paths=[]):
         Window().run_command("remove_folder", {"dirs": paths})
 
-    def is_enabled(self, paths=[]):
+    def is_visible(self, paths=[]):
         selection = CACHED_SELECTION(paths)
         project = SideBarProject()
         return project.hasDirectories() and all(
