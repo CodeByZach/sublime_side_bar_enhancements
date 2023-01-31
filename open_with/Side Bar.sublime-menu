@@ -1,52 +1,49 @@
 /*
  * Examples:
  *
- * 	{
- * 		"caption": "Photoshop",
- * 		"command": "side_bar_files_open_with",
- * 		"id": "side-bar-files-open-with-photoshop",
- * 		"open_automatically": false, // Will close the view/tab and launch the application
- * 		"args":
- * 		{
- * 			"paths": [],
- * 			"application": "Adobe Photoshop CS5.app", // macOS
- * 			"extensions": "psd|png|jpg|jpeg", // Any file with these extensions
- * 			"args": [],
- * 			"multiple": true
- * 		}
- * 	},
- * 	{
- * 		"caption": "SeaMonkey",
- * 		"command": "side_bar_files_open_with",
- * 		"id": "side-bar-files-open-with-seamonkey",
- * 		"open_automatically": false, // will close the view/tab and launch the application
- * 		"args":
- * 		{
- * 			"paths": [],
- * 			"application": "C:\\Archivos de programa\\SeaMonkey\\seamonkey.exe", // WINNT
- * 			"extensions": "", // Open all even folders
- * 			"args": [],
- * 			"multiple": true
- * 		}
- * 	},
- * 	{
- * 		"caption": "Chrome",
- * 		"command": "side_bar_files_open_with",
- * 		"id": "side-bar-files-open-with-chrome",
- * 		"open_automatically": false, // Will close the view/tab and launch the application
- * 		"args":
- * 		{
- * 			"paths": [],
- * 			"application": "C:\\Documents and Settings\\tito\\local\\Datos de programa\\Google\\Chrome\\Application\\chrome.exe",
- * 			"extensions": ".*", // Any file with extension
- * 			"args": [],
- * 			"multiple": true
- * 		}
- * 	}
+ *  {
+ *      "caption": "Photoshop",
+ *      "command": "side_bar_files_open_with",
+ *      "id": "side-bar-files-open-with-photoshop",
+ *      "args":
+ *      {
+ *          "paths": [],
+ *          "application": "Adobe Photoshop CS5.app", // macOS
+ *          "extensions": "psd|png|jpg|jpeg", // Any file with these extensions
+ *          "multiple": true,
+ *          "args": []
+ *      }
+ *  },
+ *  {
+ *      "caption": "SeaMonkey",
+ *      "command": "side_bar_files_open_with",
+ *      "id": "side-bar-files-open-with-seamonkey",
+ *      "args":
+ *      {
+ *          "paths": [],
+ *          "application": "C:\\Archivos de programa\\SeaMonkey\\seamonkey.exe", // WINNT
+ *          "extensions": "", // Open all even folders
+ *          "multiple": true,
+ *          "args": []
+ *      }
+ *  },
+ *  {
+ *      "caption": "Chrome",
+ *      "command": "side_bar_files_open_with",
+ *      "id": "side-bar-files-open-with-chrome",
+ *      "args":
+ *      {
+ *          "paths": [],
+ *          "application": "C:\\Documents and Settings\\tito\\local\\Datos de programa\\Google\\Chrome\\Application\\chrome.exe",
+ *          "extensions": ".*", // Any file with extension
+ *          "multiple": true,
+ *          "args": []
+ *      }
+ *  }
  */
 [
-	{
-		"id": "side-bar-files-open-with",
-		"children": []
-	}
+    {
+        "id": "side-bar-files-open-with",
+        "children": []
+    }
 ]

@@ -1,4 +1,4 @@
-*.sublime-project
 *.cache
-push.bat
 *.pyc
+*.sublime-project
+push.bat

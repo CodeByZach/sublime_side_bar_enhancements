@@ -403,7 +403,6 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
                 {
                     "id": "side-bar-files-open-with",
                     "children": [
-                        // Application 1
                         {
                             "caption": "Photoshop",
                             "id": "side-bar-files-open-with-photoshop",
@@ -412,14 +411,10 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
                                 "paths": [],
                                 "application": "Adobe Photoshop CS5.app", // macOS
                                 "extensions": "psd|png|jpg|jpeg",  // Any file with these extensions
-                                "args": [],
-                                "multiple": true
+                                "multiple": true,
+                                "args": []
                             }
                         },
-
-                        { "caption": "-" },
-
-                        // Application 2
                         {
                             "caption": "SeaMonkey",
                             "id": "side-bar-files-open-with-seamonkey",
@@ -428,12 +423,10 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
                                 "paths": [],
                                 "application": "C:\\\\Archivos de programa\\\\SeaMonkey\\\\seamonkey.exe", // WINNT
                                 "extensions": "", // Open all even folders
-                                "args": [],
-                                "multiple": true
+                                "multiple": true,
+                                "args": []
                             }
                         },
-
-                        // Application n
                         {
                             "caption": "Chrome",
                             "id": "side-bar-files-open-with-chrome",
@@ -442,12 +435,10 @@ class SideBarFilesOpenWithEditApplicationsCommand(sublime_plugin.WindowCommand):
                                 "paths": [],
                                 "application": "C:\\\\Documents and Settings\\\\tito\\\\local\\\\Datos de programa\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
                                 "extensions": ".*", // Any file with extension
-                                "args": [],
-                                "multiple": true
+                                "multiple": true,
+                                "args": []
                             }
-                        },
-
-                        { "caption": "-" }
+                        }
                     ]
                 }
                 ]"""

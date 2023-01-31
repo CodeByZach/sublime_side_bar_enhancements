@@ -1,9 +1,7 @@
-// <> NOTICE <>
-// Any changes made here could be overwritten when this program is updated.
 [
-	{ "caption": "-", "id": "file" },
-	{
-		"command": "side_bar_copy_name",
-		"caption": "Copy File Name"
-	}
+    { "caption": "-", "id": "file" },
+    {
+        "command": "side_bar_copy_name",
+        "caption": "Copy File Name"
+    }
 ]
