@@ -46,11 +46,11 @@ Troubleshooting Installation:
 
 (Please note that from version 2.122104 this package no longer provides the key, you need to manually add it to your sublime-keymap file (see next section))
 
-F12 key allows you to open the current file in browser.
+<kbd>F12</kbd> key allows you to open the current file in browser.
 
-`url_testing` allows you to set the url of your local server, opened via F12
+`url_testing` allows you to set the url of your local server, opened via <kbd>F12</kbd>
 
-`url_production` allows you to set the url of your production server, opened via ALT+F12
+`url_production` allows you to set the url of your production server, opened via <kbd>Alt</kbd>+<kbd>F12</kbd>
 
 ### With absolute paths
 
@@ -59,13 +59,13 @@ F12 key allows you to open the current file in browser.
 
 <!-- -->
     {
-        "S:/www/domain.tld":{
-            "url_testing":"http://testing",
-            "url_production":"http://domain.tld"
+        "S:/www/domain.tld": {
+            "url_testing": "http://testing",
+            "url_production": "http://domain.tld"
         },
-        "C:/Users/luna/some/domain2.tld":{
-            "url_testing":"http://testing1",
-            "url_production":"http://productiontld2"
+        "C:/Users/luna/some/domain2.tld": {
+            "url_testing": "http://testing1",
+            "url_production": "http://productiontld2"
         }
     }
 
@@ -86,17 +86,17 @@ Then we create configuration file:
 with content:
 
     {
-        "public/":{
-            "url_testing":"http://localhost/",
-            "url_production":"http://domain.tld/"
+        "public/": {
+            "url_testing": "http://localhost/",
+            "url_production": "http://domain.tld/"
         },
-        "experimental/":{
-            "url_testing":"http://experimental/",
-            "url_production":"http://domain.tld/"
+        "experimental/": {
+            "url_testing": "http://experimental/",
+            "url_production ":"http://domain.tld/"
         },
-        "":{
-            "url_testing":"http://the_url_for_the_project_root/",
-            "url_production":"http://the_url_for_the_project_root/"
+        "": {
+            "url_testing": "http://the_url_for_the_project_root/",
+            "url_production": "http://the_url_for_the_project_root/"
         }
     }
 
@@ -104,18 +104,27 @@ You can create config files `some/folder/.sublime/SideBarEnhancements.json` anyw
 
 #### F12 key conflict
 
-On Sublime Text 3 `F12` key is bound to `"goto_definition"` command by default. This package was conflicting with that key, this no longers happens. You need to manually add the keys now, go to:
-`Preferences -> Package Settings -> Side Bar -> Key Bindings - User`
-and add any of the following:
+On Sublime Text 3 `F12` key is bound to `"goto_definition"` command by default. This package was conflicting with that key, this no longers happens.
+You need to manually add the keys now, go to: `Preferences -> Package Settings -> Side Bar -> Key Bindings - User` and add any of the following:
 
     [
-        { "keys": ["f12"],
-            "command": "side_bar_open_in_browser" ,
-            "args":{"paths":[], "type":"testing", "browser":""}
-        },
-        { "keys": ["alt+f12"],
+        {
+            "keys": ["f12"],
             "command": "side_bar_open_in_browser",
-            "args":{"paths":[], "type":"production", "browser":""}
+            "args": {
+                "paths": [],
+                "type": "testing",
+                "browser": ""
+            }
+        },
+        {
+            "keys": ["alt+f12"],
+            "command": "side_bar_open_in_browser",
+            "args": {
+                "paths": [],
+                "type": "production",
+                "browser": ""
+            }
         },
         {
             "keys": ["ctrl+t"],
@@ -124,7 +133,7 @@ and add any of the following:
         {
             "keys": ["f2"],
             "command": "side_bar_rename"
-        },
+        }
     ]
 
 ## Keybinding for Find in paths:
@@ -196,7 +205,8 @@ Definitions file: `User/SideBarEnhancements/Open With/Side Bar.sublime-menu` (no
 
 Thank you so much!
 
-Aleksandar Urosevic, bofm, Dalibor Simacek, Devin Rhode, Eric Eldredge, Hewei Liu, Jeremy Gailor, Joao Antunes, Leif Ringstad, MauriceZ, Nick Zaccardi, Patrik Göthe, Peder Langdal, Randy Lai, Raphael DDL Oliveira, robwala, Stephen Horne, Sven Axelsson, Till Theis, Todd Wolfson, Tyler Thrailkill, Yaroslav Admin
+Aleksandar Urosevic, bofm, Dalibor Simacek, Devin Rhode, Eric Eldredge, Hewei Liu, Jeremy Gailor, Joao Antunes, Leif Ringstad, MauriceZ, Nick Zaccardi,
+Patrik Göthe, Peder Langdal, Randy Lai, Raphael DDL Oliveira, robwala, Stephen Horne, Sven Axelsson, Till Theis, Todd Wolfson, Tyler Thrailkill, Yaroslav Admin
 
 ## License
 

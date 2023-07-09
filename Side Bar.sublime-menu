@@ -196,7 +196,10 @@
 					"default": "[\n\t$0\n]\n"
 				}
 			},
-			{ "caption": "-", "id": "side-bar-files-open-with-edit-applications-separator" }
+			{
+				"caption": "-",
+				"id": "side-bar-files-open-with-edit-applications-separator"
+			}
 		]
 	},
 	{
@@ -316,7 +319,10 @@
 				"id": "side-bar-clip-copy-path-relative-to-last-selected-view",
 				"args": { "paths": [] }
 			},
-			{ "caption": "-", "id": "side-bar-clip-copy-path-relative-to-last-selected-view-separator" },
+			{
+				"caption": "-",
+				"id": "side-bar-clip-copy-path-relative-to-last-selected-view-separator"
+			},
 			{
 				"caption": "Relative Path From View Encoded",
 				"command": "side_bar_copy_path_relative_from_view_encoded",
@@ -426,7 +432,10 @@
 				"id": "side-bar-clip-copy-project-directories",
 				"args": { "paths": [] }
 			},
-			{ "caption": "-", "id": "side-bar-clip-copy-project-directories-separator" },
+			{
+				"caption": "-",
+				"id": "side-bar-clip-copy-project-directories-separator"
+			},
 			{
 				"caption": "Content as UTF-8",
 				"command": "side_bar_copy_content_utf8",
