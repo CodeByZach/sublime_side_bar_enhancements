@@ -5,10 +5,7 @@
         "id": "file",
         "children":
         [
-            {
-                "command": "side_bar_save_as_admin",
-                "caption": "Save as Admin"
-            }
+            { "caption": "Save as Admin", "command": "side_bar_save_as_admin" }
         ]
     },
     {
@@ -56,28 +53,7 @@
                                         "command": "z_edit_settings",
                                         "args":
                                         {
-                                            "is_parent_setting": "1",
                                             "base_file": "${packages}/SideBarEnhancements/Context.sublime-menu",
-                                            "default": "[\n\t$0\n]\n"
-                                        }
-                                    },
-                                    {
-                                        "caption": "Side Bar Menu",
-                                        "command": "z_edit_settings",
-                                        "args":
-                                        {
-                                            "is_parent_setting": "1",
-                                            "base_file": "${packages}/SideBarEnhancements/Side Bar.sublime-menu",
-                                            "default": "[\n\t$0\n]\n"
-                                        }
-                                    },
-                                    {
-                                        "caption": "Tab Menu",
-                                        "command": "z_edit_settings",
-                                        "args":
-                                        {
-                                            "is_parent_setting": "1",
-                                            "base_file": "${packages}/SideBarEnhancements/Tab Context.sublime-menu",
                                             "default": "[\n\t$0\n]\n"
                                         }
                                     },
@@ -86,8 +62,43 @@
                                         "command": "z_edit_settings",
                                         "args":
                                         {
-                                            "is_parent_setting": "1",
                                             "base_file": "${packages}/SideBarEnhancements/Main.sublime-menu",
+                                            "default": "[\n\t$0\n]\n"
+                                        }
+                                    },
+                                    {
+                                        "caption": "Side Bar Menu",
+                                        "command": "z_edit_settings",
+                                        "args":
+                                        {
+                                            "base_file": "${packages}/SideBarEnhancements/Side Bar.sublime-menu",
+                                            "default": "[\n\t$0\n]\n"
+                                        }
+                                    },
+                                    {
+                                        "caption": "Side Bar Open Files Menu",
+                                        "command": "z_edit_settings",
+                                        "args":
+                                        {
+                                            "base_file": "${packages}/SideBarEnhancements/Tab Sidebar Context.sublime-menu",
+                                            "default": "[\n\t$0\n]\n"
+                                        }
+                                    },
+                                    {
+                                        "caption": "Tab Menu",
+                                        "command": "z_edit_settings",
+                                        "args":
+                                        {
+                                            "base_file": "${packages}/SideBarEnhancements/Tab Context.sublime-menu",
+                                            "default": "[\n\t$0\n]\n"
+                                        }
+                                    },
+                                    {
+                                        "caption": "Widget Menu",
+                                        "command": "z_edit_settings",
+                                        "args":
+                                        {
+                                            "base_file": "${packages}/SideBarEnhancements/Widget Context.sublime-menu",
                                             "default": "[\n\t$0\n]\n"
                                         }
                                     }
@@ -98,7 +109,6 @@
                                 "command": "z_edit_settings",
                                 "args":
                                 {
-                                    "is_parent_setting": "1",
                                     "base_file": "${packages}/SideBarEnhancements/Default.sublime-commands",
                                     "default": "[\n\t$0\n]\n"
                                 }

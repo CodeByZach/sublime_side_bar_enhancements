@@ -1,7 +1,4 @@
 [
     { "caption": "-", "id": "file" },
-    {
-        "command": "side_bar_copy_name",
-        "caption": "Copy File Name"
-    }
+    { "caption": "Copy File Name", "command": "side_bar_copy_name" }
 ]
