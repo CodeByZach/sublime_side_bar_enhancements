@@ -1662,15 +1662,6 @@ class zzzzzSideBarCommand(sublime_plugin.WindowCommand):
         return False
 
 
-class SideBarDonateCommand(sublime_plugin.WindowCommand):
-    def run(self, paths=[]):
-        import webbrowser
-
-        webbrowser.open(
-            "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW",
-        )
-
-
 class zzzzzcacheSideBarCommand(sublime_plugin.EventListener):
     def on_activated(self, view):
         if view and view.file_name():

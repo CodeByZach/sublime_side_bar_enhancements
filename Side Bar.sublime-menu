@@ -155,13 +155,6 @@
         "command": "side_bar_project_item_remove_folder",
         "args": { "paths": [] }
     },
-    { "caption": "-", "id": "side-bar-donate-separator" },
-    {
-        "caption": "Give 20",
-        "command": "side_bar_donate",
-        "id": "side-bar-donate",
-        "args": { "paths": [] }
-    },
     { "caption": "-", "id": "side-bar-end-separator" },
     {
         "caption": "zzzzz_side_bar",
