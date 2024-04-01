@@ -5,7 +5,10 @@
         "id": "file",
         "children":
         [
-            { "caption": "Save as Admin", "command": "side_bar_save_as_admin" }
+            {
+                "caption": "Save as Admin",
+                "command": "side_bar_save_as_admin"
+            }
         ]
     },
     {
@@ -110,16 +113,6 @@
                                 "args":
                                 {
                                     "base_file": "${packages}/SideBarEnhancements/Default.sublime-commands",
-                                    "default": "[\n\t$0\n]\n"
-                                }
-                            },
-                            {
-                                "caption": "Open With Applications",
-                                "command": "z_edit_settings",
-                                "args":
-                                {
-                                    "base_file": "${packages}/SideBarEnhancements/open_with/Side Bar.sublime-menu",
-                                    "user_file": "${packages}/User/SideBarEnhancements/Open With/Side Bar (${platform}).sublime-menu",
                                     "default": "[\n\t$0\n]\n"
                                 }
                             },
