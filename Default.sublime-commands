@@ -1,5 +1,7 @@
 [
     { "caption": "aaaaa_side_bar",                                  "command": "aaaaa_side_bar" },
+    { "caption": "File: New File",                                  "command": "side_bar_new_file" },
+    { "caption": "File: New Folder",                                "command": "side_bar_new_directory" },
     { "caption": "File: Rename",                                    "command": "side_bar_rename" },
     { "caption": "File: Duplicate",                                 "command": "side_bar_duplicate" },
     { "caption": "File: Reveal",                                    "command": "side_bar_reveal" },
