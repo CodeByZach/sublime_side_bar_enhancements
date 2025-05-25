@@ -26,7 +26,7 @@ without deleting the folder.
 
 "Promote" (its "opposite") takes any folder visible in the FOLDERS trees and ALSO
 makes it a Mount Point (i.e. top-level folder), in addition to the top-level folders
-that were already there.
+that were already in the project.
 
 ## Pre Simplification
 
