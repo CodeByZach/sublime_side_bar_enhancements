@@ -20,6 +20,14 @@ with the help of "Preferences -> Browse Packages".
 - `<data_path>/Packages/Default/Side Bar Mount Point.sublime-menu`
 - `<data_path>/Packages/Default/Side Bar.sublime-menu`
 
+Note:  "Unpromote" replaces the "Remove Folder from Project" menu item from the
+`Side Bar Mount Point.sublime-menu` context menu, and accomplishes the same thing
+without deleting the folder.
+
+"Promote" (its "opposite") takes any folder visible in the FOLDERS trees and ALSO
+makes it a Mount Point (i.e. top-level folder), in addition to the top-level folders
+that were already there.
+
 ## Pre Simplification
 
 After 13-Jul-2023, this Package was simplified.  If you wish to use (or go back to)
