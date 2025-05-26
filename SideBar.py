@@ -101,15 +101,6 @@ Cache = Cache()
 Cache.cached = False
 
 
-class aaaaaSideBarCommand(sublime_plugin.WindowCommand):
-    def run(self, paths=[]):
-        pass
-
-    def is_visible(self, paths=[]):  # <- WORKS AS AN ONPOPUPSHOWN
-        Cache.cached = SideBarSelection(paths)
-        return False
-
-
 class SideBarNewFileCommand(sublime_plugin.WindowCommand):
     def run(self, paths=[], name=""):
         import functools
@@ -1651,18 +1642,3 @@ class side_bar_copy_project_directories(sublime_plugin.WindowCommand):
 
     def is_enabled(self, paths=[]):
         return True
-
-
-class zzzzzSideBarCommand(sublime_plugin.WindowCommand):
-    def run(self, paths=[]):
-        pass
-
-    def is_visible(self, paths=[]):  # <- WORKS AS AN ONPOPUPSHOWN
-        Cache.cached = False
-        return False
-
-
-class zzzzzcacheSideBarCommand(sublime_plugin.EventListener):
-    def on_activated(self, view):
-        if view and view.file_name():
-            Cache.cached = SideBarSelection([view.file_name()])

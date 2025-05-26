@@ -1,55 +1,49 @@
 [
-    {
-        "caption": "aaaaa_side_bar",
-        "command": "aaaaa_side_bar",
-        "id": "aaaaa_side_bar",
-        "args": { "paths": [] }
-    },
     { "caption": "-", "id": "side-bar-start-separator" },
-    {
-        "caption": "New File…",
-        "command": "side_bar_new_file",
-        "id": "side-bar-new-file",
-        "args": { "paths": [] }
-    },
-    {
-        "caption": "New Folder…",
-        "command": "side_bar_new_directory",
-        "id": "side-bar-new-directory",
-        "args": { "paths": [] }
-    },
+    // {
+    //     "caption": "New File…",
+    //     "command": "side_bar_new_file",
+    //     "id": "side-bar-new-file",
+    //     "args": { "paths": [] }
+    // },
+    // {
+    //     "caption": "New Folder…",
+    //     "command": "side_bar_new_directory",
+    //     "id": "side-bar-new-directory",
+    //     "args": { "paths": [] }
+    // },
     { "caption": "-", "id": "side-bar-new-separator" },
-    {
-        "caption": "Edit",
-        "command": "side_bar_edit",
-        "id": "side-bar-edit",
-        "args": { "paths": [] }
-    },
-    {
-        "caption": "Edit to Right",
-        "command": "side_bar_edit_to_right",
-        "id": "side-bar-edit-to-right",
-        "args": { "paths": [] }
-    },
-    { "caption": "-" },
+    // {
+    //     "caption": "Edit",
+    //     "command": "side_bar_edit",
+    //     "id": "side-bar-edit",
+    //     "args": { "paths": [] }
+    // },
+    // {
+    //     "caption": "Edit to Right",
+    //     "command": "side_bar_edit_to_right",
+    //     "id": "side-bar-edit-to-right",
+    //     "args": { "paths": [] }
+    // },
+    // { "caption": "-" },
     {
         "caption": "Open / Run",
         "command": "side_bar_open",
         "id": "side-bar-open",
         "args": { "paths": [] }
     },
-    {
-        "caption": "Open In New Window",
-        "command": "side_bar_open_in_new_window",
-        "id": "side-bar-open-in-new-window",
-        "args": { "paths": [] }
-    },
-    {
-        "caption": "Open With Finder",
-        "command": "side_bar_open_with_finder",
-        "id": "side-bar-open-with-finder",
-        "args": { "paths": [] }
-    },
+    // {
+    //     "caption": "Open In New Window",
+    //     "command": "side_bar_open_in_new_window",
+    //     "id": "side-bar-open-in-new-window",
+    //     "args": { "paths": [] }
+    // },
+    // {
+    //     "caption": "Open With Finder",
+    //     "command": "side_bar_open_with_finder",
+    //     "id": "side-bar-open-with-finder",
+    //     "args": { "paths": [] }
+    // },
     { "caption": "-", "id": "side-bar-edit-open-separator" },
     {
         "caption": "Find & Replace…",
@@ -110,13 +104,12 @@
         "args": { "paths": [] }
     },
     { "caption": "-", "id": "side-bar-duplicate-separator" },
-    {
-        "caption": "Rename…",
-        "command": "side_bar_rename",
-        "id": "side-bar-rename",
-        "args": { "paths": [] }
-    },
-
+    // {
+    //     "caption": "Rename…",
+    //     "command": "side_bar_rename",
+    //     "id": "side-bar-rename",
+    //     "args": { "paths": [] }
+    // },
     {
         "caption": "Move…",
         "command": "side_bar_move",
@@ -130,19 +123,19 @@
         "args": { "paths": [] }
     },
     { "caption": "-", "id": "side-bar-rename-move-separator" },
-    {
-        "caption": "Delete",
-        "command": "side_bar_delete",
-        "id": "side-bar-delete",
-        "args": { "paths": [] }
-    },
+    // {
+    //     "caption": "Delete",
+    //     "command": "side_bar_delete",
+    //     "id": "side-bar-delete",
+    //     "args": { "paths": [] }
+    // },
     { "caption": "-", "id": "side-bar-delete-separator" },
-    {
-        "caption": "Reveal",
-        "command": "side_bar_reveal",
-        "id": "side-bar-reveal",
-        "args": { "paths": [] }
-    },
+    // {
+    //     "caption": "Reveal",
+    //     "command": "side_bar_reveal",
+    //     "id": "side-bar-reveal",
+    //     "args": { "paths": [] }
+    // },
     { "caption": "-", "id": "side-bar-reveal-separator" },
     {
         "caption": "Promote",
@@ -155,11 +148,5 @@
         "command": "side_bar_project_item_remove_folder",
         "args": { "paths": [] }
     },
-    { "caption": "-", "id": "side-bar-end-separator" },
-    {
-        "caption": "zzzzz_side_bar",
-        "command": "zzzzz_side_bar",
-        "id": "zzzzz_side_bar",
-        "args": { "paths": [] }
-    }
+    { "caption": "-", "id": "side-bar-end-separator" }
 ]
